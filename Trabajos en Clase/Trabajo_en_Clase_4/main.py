@@ -15,7 +15,6 @@ def mostrar_menu():
     return input("Seleccione una opción: ")
 
 def main():
-    # Listas para almacenar los datos
     personas = []
     mascotas = []
     vehiculos = []
