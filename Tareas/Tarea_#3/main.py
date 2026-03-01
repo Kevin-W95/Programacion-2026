@@ -2,19 +2,21 @@ from generar.logica import crear_matriz, palabra, aleatorios
 from generar.visualizacion import imprimir_sopa
 
 def menu_principal():
-    #Gestiona el flujo de entrada, generación de la matriz y la opción de resolución para el usuario.
+    #El menú gestiona el flujo de entrada de datos.
     palabras = []
-    print("Bienvenido al Generador de Sopa de Letras del Dr. House")
-
+    print("--- Generador de Sopa de Letras - Dr. House ---")
+    
+    #Permitir al usuario ingresar palabras una por una
     while len(palabras) < 15:
-        entrada = input(f"Ingrese palabra {len(palabras)+1} (o 'FIN' para generar): ").strip()
-        if entrada.upper() == 'FIN':
+        entrada = input(f"Ingrese palabra {len(palabras)+1} (o escriba 'SALIR' para terminar): ").strip()
+        
+        # Opción para finalizar el ingreso
+        if entrada.upper() == 'SALIR':
             break
-        if len(entrada) > 15:
-            print("Error: La palabra es muy larga.")
-            continue
-        if entrada:
+            
+        if len(entrada) > 0:
             palabras.append(entrada)
+            print(f"Palabra '{entrada}' agregada. Puede ingresar otra o finalizar[cite: 17].")
 
     matriz = crear_matriz(15)
     indices_solucion = []
@@ -26,11 +28,11 @@ def menu_principal():
     
     aleatorios(matriz)
 
+    # Mostrar sopa para que el usuario intente resolverla
+    print("\n¡Aquí está tu sopa de letras! Intenta encontrar las palabras.")
     imprimir_sopa(matriz)
     
-    resolver = input("\n¿Desea ver la solución? (S/N): ")
-    if resolver.upper() == 'S':
-        imprimir_sopa(matriz, indices_solucion)
-
-if __name__ == "__main__":
-    menu_principal()
+    # Opción para mostrar la solución resaltada
+    input("\nPresiona ENTER cuando estés listo para ver la solución...")
+    print("\nSopa Resuelta (Palabras en color): ")
+    imprimir_sopa(matriz, indices_solucion)
