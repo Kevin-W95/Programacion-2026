@@ -36,3 +36,5 @@ def menu_principal():
     input("\nPresiona ENTER cuando estés listo para ver la solución...")
     print("\nSopa Resuelta (Palabras en color): ")
     imprimir_sopa(matriz, indices_solucion)
+
+menu_principal()
