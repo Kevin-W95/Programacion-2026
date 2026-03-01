@@ -1,7 +1,7 @@
 def imprimir_sopa(matriz, resaltados=None):
     #Imprime la sopa de letras en consola.
-    #Si se pasa una lista de 'resaltados', imprime esas letras en color azul.
-    
+    #Si se pasa una lista de "resaltados", imprime esas letras en color azul.
+
     #Coloración
     COLOR_AZUL = '\033[94m'
     RESET = '\033[0m'
