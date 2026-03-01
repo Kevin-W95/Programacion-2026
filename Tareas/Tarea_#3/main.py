@@ -14,9 +14,10 @@ def menu_principal():
         if entrada.upper() == 'SALIR':
             break
             
-        if len(entrada) > 0:
+        if entrada:
             palabras.append(entrada)
-            print(f"Palabra '{entrada}' agregada. Puede ingresar otra o finalizar.")
+        else: 
+            print("Por favor, ingrese una palabra válida.")
 
     matriz = crear_matriz(15)
     indices_solucion = []
