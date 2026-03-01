@@ -29,11 +29,11 @@ def menu_principal():
     
     aleatorios(matriz)
 
-    # Mostrar sopa para que el usuario intente resolverla
+    #Mostrar sopa para que el usuario intente resolverla
     print("\n¡Aquí está tu sopa de letras! Intenta encontrar las palabras.")
     imprimir_sopa(matriz)
     
-    # Opción para mostrar la solución resaltada
+    #Opción para mostrar la solución resaltada
     input("\nPresiona ENTER cuando estés listo para ver la solución...")
     print("\nSopa Resuelta (Palabras en color): ")
     imprimir_sopa(matriz, indices_solucion)
