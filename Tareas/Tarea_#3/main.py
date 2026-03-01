@@ -16,7 +16,7 @@ def menu_principal():
             
         if len(entrada) > 0:
             palabras.append(entrada)
-            print(f"Palabra '{entrada}' agregada. Puede ingresar otra o finalizar[cite: 17].")
+            print(f"Palabra '{entrada}' agregada. Puede ingresar otra o finalizar.")
 
     matriz = crear_matriz(15)
     indices_solucion = []
