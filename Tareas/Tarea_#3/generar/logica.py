@@ -1,11 +1,11 @@
 import random
 import string
 
-def crear_base_matriz(tamano=15):
+def crear_matriz(tamano=15):
     #Esta función crea una matriz cuadrada de n x n inicializada con espacios vacíos para ser llenada despues.
     return [[' ' for _ in range(tamano)] for _ in range(tamano)]
 
-def insertar_palabra(matriz, palabra):
+def palabra(matriz, palabra):
     tamano = len(matriz)
     palabra = palabra.upper()
     intentos = 0
@@ -24,7 +24,7 @@ def insertar_palabra(matriz, palabra):
         intentos += 1
     return None
 
-def completar_con_aleatorios(matriz):
+def aleatorios(matriz):
     abc = string.ascii_uppercase
     for f in range(len(matriz)):
         for c in range(len(matriz)):

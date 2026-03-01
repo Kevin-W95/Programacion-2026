@@ -1,4 +1,4 @@
-from generar.logica import crear_base_matriz, insertar_palabra, completar_con_aleatorios
+from generar.logica import crear_matriz, palabra, aleatorios
 from generar.visualizacion import imprimir_sopa
 
 def menu_principal():
@@ -16,15 +16,15 @@ def menu_principal():
         if entrada:
             palabras.append(entrada)
 
-    matriz = crear_base_matriz(15)
+    matriz = crear_matriz(15)
     indices_solucion = []
     
     for p in palabras:
-        posiciones = insertar_palabra(matriz, p)
+        posiciones = palabra(matriz, p)
         if posiciones:
             indices_solucion.extend(posiciones)
     
-    completar_con_aleatorios(matriz)
+    aleatorios(matriz)
 
     imprimir_sopa(matriz)
     
