@@ -22,7 +22,6 @@ def main():
         op = input("Seleccione una opción: ")
         
         if op == "1":
-            # Aquí llamarías a un submenú similar al de animales
             pass 
         elif op == "2":
             listar_todo(lista_empleados)

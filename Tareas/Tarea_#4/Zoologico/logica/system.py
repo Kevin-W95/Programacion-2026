@@ -1,6 +1,6 @@
-from Entidades.workers import Administrador, Guardian, Conserje, Veterinario
-from Entidades.transport import Bicicleta, Cuadraciclo, Patineta
-from Entidades.animal import Leon, Tiburon
+from entidades.workers import Administrador, Guardian, Conserje, Veterinario
+from entidades.transport import Bicicleta, Cuadraciclo, Patineta
+from entidades.animal import Leon, Tiburon
 
 lista_empleados = []
 lista_transportes = []
