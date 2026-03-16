@@ -27,6 +27,14 @@ def registrar_animal(tipo, nombre, edad):
     else: return
     lista_animales.append(nuevo)
 
+def registrar_transporte(tipo, codigo):
+    """Crea el objeto de transporte y lo guarda en la lista."""
+    if tipo == "1": nuevo = Bicicleta(codigo)
+    elif tipo == "2": nuevo = Cuadraciclo(codigo)
+    elif tipo == "3": nuevo = Patineta(codigo)
+    else: return
+    lista_transportes.append(nuevo)
+
 def listar_todo(lista):
     """Recorre cualquier lista e imprime los objetos usando su método __str__"""
     if not lista:
