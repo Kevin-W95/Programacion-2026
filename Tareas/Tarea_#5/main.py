@@ -1,93 +1,86 @@
-# main.py
-from mecanismo.contactos import Contacto
-from mecanismo import archivos as gestor
+import json
+import csv
 
-class AgendaHolmes:
-    def __init__(self):
-        self.lista_contactos = []
-        self.archivo_actual = None
-        self.formato_actual = None # 'json' o 'csv'
+agenda = []
+archivo_actual = ""
+tipo_archivo = ""
 
-    def ejecutar(self):
-        while True:
-            print("\n--- AGENDA DE SHERLOCK HOLMES ---")
-            print("1. Cargar archivo (JSON/CSV)")
-            print("2. Agregar contacto")
-            print("3. Buscar por nombre (parcial)")
-            print("4. Buscar por teléfono (parcial)")
-            print("5. Mostrar promedio de edad")
-            print("6. Mostrar todos")
-            print("7. Salir")
-            
-            op = input("Seleccione: ")
-            if op == "1": self.menu_cargar()
-            elif op == "2": self.menu_agregar()
-            elif op == "3": self.buscar_nombre()
-            elif op == "4": self.buscar_telefono()
-            elif op == "5": self.promedio_edad()
-            elif op == "6": self.mostrar_todos()
-            elif op == "7": break
+def cargar_archivo():
+    global agenda, archivo_actual, tipo_archivo
+    print("1. JSON")
+    print("2. CSV")
+    op = input("Seleccione tipo: ")
+    nombre = input("Nombre del archivo: ")
+    
+    if op == "1":
+        archivo = open(nombre, "r")
+        agenda = json.load(archivo)
+        archivo.close()
+        tipo_archivo = "json"
+    else:
+        archivo = open(nombre, "r")
+        lector = csv.DictReader(archivo)
+        agenda = list(lector)
+        archivo.close()
+        tipo_archivo = "csv"
+    
+    archivo_actual = nombre
+    print("¡Archivo cargado!")
 
-    def menu_cargar(self):
-        tipo = input("¿Tipo de archivo? (1. JSON / 2. CSV): ")
-        ruta = input("Nombre del archivo (ej: personas.json): ")
-        
-        if tipo == "1":
-            datos = gestor.leer_json(ruta)
-            self.formato_actual = "json"
-        else:
-            datos = gestor.leer_csv(ruta)
-            self.formato_actual = "csv"
-            
-        self.archivo_actual = ruta
-        # Transformar diccionarios en objetos Contacto
-        self.lista_contactos = []
-        for d in datos:
-            # Creamos el objeto asegurándonos de que tenga los campos del PDF
-            c = Contacto(
-                d.get('nombre','?'), d.get('telefono','?'), 
-                d.get('email','?'), d.get('edad',0), d.get('residencia','?')
-            )
-            self.lista_contactos.append(c)
-        print(f"Cargados {len(self.lista_contactos)} contactos.")
+def agregar_contacto():
+    if archivo_actual == "":
+        print("Carga un archivo primero")
+        return
 
-    def menu_agregar(self):
-        if not self.archivo_actual:
-            print("Error: Primero cargue un archivo.")
-            return
-        
-        nuevo = Contacto(
-            input("Nombre: "), input("Teléfono: "),
-            input("Email: "), input("Edad: "), input("Residencia: ")
-        )
-        self.lista_contactos.append(nuevo)
-        
-        # Guardar inmediatamente
-        if self.formato_actual == "json":
-            gestor.guardar_json(self.archivo_actual, self.lista_contactos)
-        else:
-            gestor.guardar_csv(self.archivo_actual, self.lista_contactos)
-        print("Guardado con éxito.")
+    nombre = input("Nombre: ")
+    edad = int(input("Edad: "))
+    tel = input("Tel: ")
+    email = input("Email: ")
+    res = input("Ciudad: ")
 
-    def buscar_nombre(self):
-        termino = input("Nombre a buscar: ").lower()
-        encontrados = [c for c in self.lista_contactos if termino in c.nombre.lower()]
-        for e in encontrados: print(e)
+    nuevo = {
+        "nombre": nombre,
+        "edad": edad,
+        "telefono": tel,
+        "email": email,
+        "residencia": res
+    }
+    
+    agenda.append(nuevo)
 
-    def buscar_telefono(self):
-        termino = input("Teléfono a buscar: ")
-        encontrados = [c for c in self.lista_contactos if termino in c.telefono]
-        for e in encontrados: print(e)
+    if tipo_archivo == "json":
+        f = open(archivo_actual, "w")
+        json.dump(agenda, f, indent=4)
+        f.close()
+    else:
+        f = open(archivo_actual, "w", newline="")
+        columnas = ["nombre", "edad", "telefono", "email", "residencia"]
+        escritor = csv.DictWriter(f, fieldnames=columnas)
+        escritor.writeheader()
+        escritor.writerows(agenda)
+        f.close()
+    print("Guardado.")
 
-    def promedio_edad(self):
-        if not self.lista_contactos: return
-        total = sum(c.edad for c in self.lista_contactos)
-        print(f"Promedio de edad: {total / len(self.lista_contactos):.2f}")
+def buscar_nombre():
+    buscar = input("Nombre a buscar: ").lower()
+    for persona in agenda:
+        if buscar in persona["nombre"].lower():
+            print("Encontrado:", persona["nombre"], "-", persona["telefono"])
 
-    def mostrar_todos(self):
-        for c in self.lista_contactos:
-            print(c)
-
-if __name__ == "__main__":
-    app = AgendaHolmes()
-    app.ejecutar()
+while True:
+    print("\n--- MI AGENDA ---")
+    print("1. Cargar")
+    print("2. Agregar")
+    print("3. Buscar")
+    print("4. Salir")
+    
+    opcion = input("Elija: ")
+    
+    if opcion == "1":
+        cargar_archivo()
+    elif opcion == "2":
+        agregar_contacto()
+    elif opcion == "3":
+        buscar_nombre()
+    elif opcion == "4":
+        break
