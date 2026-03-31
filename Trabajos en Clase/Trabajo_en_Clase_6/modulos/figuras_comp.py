@@ -1,5 +1,5 @@
 import math
-from .Abstract import Figura
+from Abstract import Figura
 
 class Cilindro(Figura):
     def __init__(self, radio, altura):

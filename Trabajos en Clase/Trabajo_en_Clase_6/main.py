@@ -1,3 +1,9 @@
+""" Para ejecutar el codigo, escribir esto en una terminal nueva:
+cd "Trabajos en Clase/Trabajo_en_Clase_6"
+
+Despues presionar "Enter" y escribir: py main.py 
+Presionar "Enter" otra vez y asi empezara el codigo """
+
 from modulos.figuras_comp import Cilindro, Cono, Cubo, Esfera, Paralelepipedo
 from procesos.liskov import imprimir_volumen
 
