@@ -5,14 +5,14 @@ import logica.herramientas
 import os
 
 def ejecutar():
-
+    print("--- INICIANDO SISTEMA ---")
     catalogo = [] 
 
     #Inicialización del sistema cargando el catálogo externo
-    nombre_archivo = "data/catalogo.json"
+    nombre_archivo = "catalogo.json"
 
     if not os.path.exists(nombre_archivo):
-        nombre_archivo = "data/catalogo.csv"
+        nombre_archivo = "catalogo.csv"
 
     if os.path.exists(nombre_archivo):
         datos_crudos = cargar_catalogo(nombre_archivo)
