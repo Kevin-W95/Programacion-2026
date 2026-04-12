@@ -7,7 +7,6 @@ class Contacto:
         self.residencia = residencia
 
     def to_dict(self):
-        """Convierte el objeto a diccionario para guardarlo fácilmente"""
         return {
             "nombre": self.nombre,
             "telefono": self.telefono,
