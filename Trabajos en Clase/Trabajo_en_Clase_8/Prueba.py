@@ -4,14 +4,14 @@ converter = FileConverter()
 
 #Método para JSON
 try:
-    datos_json = converter.convertFromJson(r"Trabajo_en_Clase_8/ejemplo.json")
+    datos_json = converter.convertFromJson("Trabajos en Clase/Trabajo_en_Clase_8/ejemplo.json")
     print("Contenido JSON:", datos_json)
 except FileNotFoundError:
     print("Error: El archivo JSON no fue encontrado.")
 
 #Método para CSV
 try:
-    datos_csv = converter.convertFromCSV(r"Trabajo_en_Clase_8/ejemplo.csv")
+    datos_csv = converter.convertFromCSV("Trabajos en Clase/Trabajo_en_Clase_8/ejemplo.csv")
     print("Contenido CSV:", datos_csv)
 except FileNotFoundError:
     print("Error: El archivo CSV no fue encontrado.")
