@@ -81,7 +81,7 @@ def ejecutar():
             id_compra = input("Ingrese ID del juego para comprar: ")
             encontrado = next((j for j in catalogo if str(j._id) == id_compra), None)
             if encontrado and encontrado.stock > 0:
-                carrito.agregar_item(encontrado)
+                carrito.agregar_juego(encontrado)
                 encontrado.stock -= 1
                 print(f"{encontrado.nombre} añadido al carrito.")
             else:
