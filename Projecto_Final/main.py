@@ -7,8 +7,8 @@ import os
 def ejecutar():
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    ruta_json = os.path.join(BASE_DIR, "data", "catalogo.json")
-    ruta_csv = os.path.join(BASE_DIR, "data", "catalogo.csv")
+    ruta_json = os.path.join(BASE_DIR, "data", "facturas", "catalogo.json")
+    ruta_csv = os.path.join(BASE_DIR, "data", "facturas", "catalogo.csv")
 
     catalogo = [] 
     datos_crudos = []
@@ -22,6 +22,7 @@ def ejecutar():
         nombre_archivo = None
 
     if nombre_archivo:
+        print(f"Cargando catálogo desde: {nombre_archivo}")
         datos_crudos = cargar_catalogo(nombre_archivo)
         for d in datos_crudos:
             con = str(d.get('consola', '')).upper()
@@ -113,7 +114,7 @@ def ejecutar():
                 })
             
             #Guardamos en la misma ruta que abrimos
-            ruta_guardado = ruta_json if ruta_json else os.path.join(BASE_DIR, "data", "catalogo.json")
+            ruta_guardado = nombre_archivo if nombre_archivo else os.path.join(BASE_DIR, "data", "facturas", "catalogo.json")
             guardar_archivo(ruta_guardado, datos_finales)
             print("Cambios guardados. ¡Hasta luego!")
             break

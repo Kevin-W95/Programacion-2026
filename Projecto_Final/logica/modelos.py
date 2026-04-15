@@ -19,6 +19,10 @@ class VideoJuego:
     def stock(self):
         return self._stock
 
+    @property
+    def id(self):
+        return self._id
+
     #Valida que el stock no sea negativo al modificarlo
     @stock.setter
     def stock(self, valor):
