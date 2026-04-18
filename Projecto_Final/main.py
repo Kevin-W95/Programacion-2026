@@ -3,6 +3,7 @@ from logica.gestionar import cargar_catalogo, guardar_archivo
 from logica.tienda import Carrito
 import logica.herramientas
 import os
+from datetime import datetime
 
 def ejecutar():
 
@@ -108,7 +109,7 @@ def ejecutar():
                     nombre_txt = os.path.join(folder_facturas, f"{cliente.replace(' ', '_')}.txt")
 
                     with open(nombre_txt, "w", encoding="utf-8") as f:
-                        f.write(f"Factura de Venta\nCliente: {cliente}\n" + "="*30 + "\n")
+                        f.write(f"Factura de Venta\nFecha: {datetime.now().strftime('%Y-%m-%d')}\nCliente: {cliente}\n" + "="*30 + "\n")
                         for i in carrito.items:
                             f.write(f"{i.nombre:<20} ${i.precio:>7.2f}\n")
                         f.write("="*35 + f"\nTOTAL A PAGAR: ${total_compra:.2f}")
