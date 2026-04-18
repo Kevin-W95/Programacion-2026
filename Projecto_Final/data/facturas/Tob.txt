@@ -1,0 +1,8 @@
+Factura de Venta
+Fecha: 2026-04-17
+Cliente: Tob
+==============================
+Street Fighter 6     $  59.99
+Final Fantasy XVI    $  69.99
+===================================
+TOTAL A PAGAR: $129.98

@@ -1,0 +1,8 @@
+Factura de Venta
+Fecha: 2026-04-17
+Cliente: Sebas
+==============================
+The Legend of Zelda Tears of the Kingdom $  69.99
+Tekken 8             $  69.99
+===================================
+TOTAL A PAGAR: $139.98

@@ -1,0 +1,8 @@
+Factura de Venta
+Cliente: Ed
+==============================
+Street Fighter 6     $  59.99
+Tekken 8             $  69.99
+Pokemon Scarlet      $  59.99
+===================================
+TOTAL A PAGAR: $189.97

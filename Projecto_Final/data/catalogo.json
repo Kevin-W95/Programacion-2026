@@ -5,7 +5,7 @@
         "categoria": "Aventura",
         "precio": 69.99,
         "esrb": "E10+",
-        "stock": 12,
+        "stock": 10,
         "consola": "Nintendo Switch"
     },
     {
@@ -104,7 +104,7 @@
         "categoria": "RPG",
         "precio": 69.99,
         "esrb": "M",
-        "stock": 8,
+        "stock": 6,
         "consola": "PS5"
     },
     {
@@ -185,7 +185,7 @@
         "categoria": "Peleas",
         "precio": 59.99,
         "esrb": "T",
-        "stock": 12,
+        "stock": 8,
         "consola": "PS5"
     },
     {
@@ -194,7 +194,7 @@
         "categoria": "Peleas",
         "precio": 69.99,
         "esrb": "T",
-        "stock": 8,
+        "stock": 4,
         "consola": "PS5"
     },
     {
@@ -221,7 +221,7 @@
         "categoria": "RPG",
         "precio": 59.99,
         "esrb": "E",
-        "stock": 14,
+        "stock": 12,
         "consola": "Nintendo Switch"
     },
     {
@@ -276,6 +276,15 @@
         "precio": 9.99,
         "esrb": "T",
         "stock": 21,
+        "consola": "PS5"
+    },
+    {
+        "id": 32,
+        "nombre": "Valorant",
+        "categoria": "General",
+        "precio": 1.99,
+        "esrb": "T",
+        "stock": 12,
         "consola": "PS5"
     }
 ]
