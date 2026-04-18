@@ -1,0 +1,8 @@
+Factura de Venta
+Cliente: Ken
+==============================
+Mario Kart 8 Deluxe  $  59.99
+FIFA 24              $  69.99
+Final Fantasy XVI    $  69.99
+===================================
+TOTAL A PAGAR: $199.97

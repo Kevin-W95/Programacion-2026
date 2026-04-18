@@ -114,7 +114,7 @@ def ejecutar():
                         f.write("="*35 + f"\nTOTAL A PAGAR: ${total_compra:.2f}")
 
                     #Genera el archivo de factura en la carpeta 'facturas'
-                    print(f"✅ Factura creada: {nombre_txt}")
+                    print(f"Factura creada: {nombre_txt}")
                     print(f"Compra finalizada para {cliente}. ¡Gracias!")
                     carrito.items = [] #Limpiar carrito
 
