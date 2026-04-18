@@ -29,7 +29,11 @@ def validar_id_unico(id_nuevo, catalogo):
     """
     Recorre el catálogo para asegurar que el identificador no esté repetido
     """
+    try:
+        id_int = int(id_nuevo)
+    except ValueError:
+        raise ValueError("Error: El ID debe ser un número entero.")
     for juego in catalogo:
-        if juego._id == id_nuevo:
+        if juego._id == id_int:
             raise ValueError("Error: El Identificador ya existe en el catálogo.")
-    return id_nuevo
+    return id_int

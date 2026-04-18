@@ -7,8 +7,8 @@ import os
 def ejecutar():
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    ruta_json = os.path.join(BASE_DIR, "data", "facturas", "catalogo.json")
-    ruta_csv = os.path.join(BASE_DIR, "data", "facturas", "catalogo.csv")
+    ruta_json = os.path.join(BASE_DIR, "data", "catalogo.json")
+    ruta_csv = os.path.join(BASE_DIR, "data", "catalogo.csv")
 
     catalogo = [] 
     datos_crudos = []
@@ -119,7 +119,7 @@ def ejecutar():
                     carrito.items = [] #Limpiar carrito
 
         elif op == "5":
-            #Guardamos cambios en el archivo antes de cerrar
+            #Se guardan los cambios en el archivo antes de cerrar
             datos_finales = []
             for j in catalogo:
                 datos_finales.append({
@@ -127,8 +127,8 @@ def ejecutar():
                     "precio": j.precio, "esrb": j.esrb, "stock": j.stock, "consola": j.consola
                 })
             
-            #Guardamos en la misma ruta que abrimos
-            ruta_guardado = nombre_archivo if nombre_archivo else os.path.join(BASE_DIR, "data", "facturas", "catalogo.json")
+            #Se guarda en la misma ruta 
+            ruta_guardado = nombre_archivo if nombre_archivo else os.path.join(BASE_DIR, "data", "catalogo.json")
             guardar_archivo(ruta_guardado, datos_finales)
             print("Cambios guardados. ¡Hasta luego!")
             break

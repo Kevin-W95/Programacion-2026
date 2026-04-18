@@ -2,7 +2,7 @@ class VideoJuego:
     """Clase padre que define los atributos base de cualquier videojuego."""
     def __init__(self, id_unico, nombre, categoria, precio, esrb, stock, consola):
         #Atributos protegidos
-        self._id = id_unico 
+        self._id = int(id_unico) 
         self.nombre = nombre
         self.categoria = categoria
         self._precio = float(precio)
