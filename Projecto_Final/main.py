@@ -92,6 +92,7 @@ def ejecutar():
             if not carrito.items:
                 print("El carrito está vacío.")
             else:
+                total_compra = sum(i.precio for i in carrito.items)
                 print("\n--- FACTURA PROVISIONAL ---")
                 for item in carrito.items:
                     print(f"• {item.nombre:<30} ${item.precio:>7}")
@@ -100,7 +101,20 @@ def ejecutar():
                 confirmar = input("\n¿Desea finalizar la compra? (s/n): ")
                 if confirmar.lower() == 's':
                     cliente = input("Nombre del cliente: ")
+
+                    folder_facturas = os.path.join(BASE_DIR, "data", "facturas")
+                    os.makedirs(folder_facturas, exist_ok=True)
+
+                    nombre_txt = os.path.join(folder_facturas, f"{cliente.replace(' ', '_')}.txt")
+
+                    with open(nombre_txt, "w", encoding="utf-8") as f:
+                        f.write(f"Factura de Venta\nCliente: {cliente}\n" + "="*30 + "\n")
+                        for i in carrito.items:
+                            f.write(f"{i.nombre:<20} ${i.precio:>7.2f}\n")
+                        f.write("="*35 + f"\nTOTAL A PAGAR: ${total_compra:.2f}")
+
                     #Genera el archivo de factura en la carpeta 'facturas'
+                    print(f"✅ Factura creada: {nombre_txt}")
                     print(f"Compra finalizada para {cliente}. ¡Gracias!")
                     carrito.items = [] #Limpiar carrito
 

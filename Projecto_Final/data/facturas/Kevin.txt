@@ -1,0 +1,7 @@
+Factura de Venta
+Cliente: Kevin
+==============================
+Super Mario Odyssey  $  59.99
+Street Fighter 6     $  59.99
+===================================
+TOTAL A PAGAR: $119.98
