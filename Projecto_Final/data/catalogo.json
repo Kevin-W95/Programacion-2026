@@ -86,7 +86,7 @@
         "categoria": "RPG",
         "precio": 69.99,
         "esrb": "M",
-        "stock": 4,
+        "stock": 3,
         "consola": "PS5"
     },
     {
@@ -104,7 +104,7 @@
         "categoria": "RPG",
         "precio": 69.99,
         "esrb": "M",
-        "stock": 6,
+        "stock": 4,
         "consola": "PS5"
     },
     {
@@ -203,7 +203,7 @@
         "categoria": "Deportes",
         "precio": 69.99,
         "esrb": "E",
-        "stock": 18,
+        "stock": 16,
         "consola": "Xbox"
     },
     {
@@ -212,7 +212,7 @@
         "categoria": "Deportes",
         "precio": 69.99,
         "esrb": "E",
-        "stock": 16,
+        "stock": 15,
         "consola": "Xbox"
     },
     {
