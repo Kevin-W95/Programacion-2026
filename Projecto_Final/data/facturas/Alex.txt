@@ -1,8 +1,0 @@
-Factura de Venta
-Fecha: 2026-04-17
-Cliente: Alex
-==============================
-Street Fighter 6     $  59.99
-The Last of Us Part I $  69.99
-===================================
-TOTAL A PAGAR: $129.98
